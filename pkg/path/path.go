@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func RootPath() (string, error) {
+func ProjectRoot() (string, error) {
 	ex, err := filepath.Abs("")
 	if err != nil {
 		return "", err

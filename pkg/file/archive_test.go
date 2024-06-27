@@ -8,7 +8,7 @@ import (
 )
 
 func TestCompressTarGz(t *testing.T) {
-	root, err := path.RootPath()
+	root, err := path.ProjectRoot()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -22,7 +22,7 @@ func TestCompressTarGz(t *testing.T) {
 }
 
 func TestExtractTarGz(t *testing.T) {
-	root, err := path.RootPath()
+	root, err := path.ProjectRoot()
 	if err != nil {
 		t.Fatal(err)
 	}

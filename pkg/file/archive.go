@@ -11,7 +11,7 @@ import (
 )
 
 func CompressTarGz(srcPath, destPath string) error {
-	if FileExists(destPath) {
+	if Exists(destPath) {
 		return fmt.Errorf("%s already exist", destPath)
 	}
 	outFile, err := os.Create(destPath)
@@ -88,7 +88,7 @@ func ExtractTarGz(srcPath, destDirPath, targetName string) error {
 		}
 		newHeaderName := filepath.Join(targetName, strings.TrimPrefix(header.Name, rootPrefix))
 		targetPath := filepath.Join(destDirPath, newHeaderName)
-		if FileExists(targetPath) {
+		if Exists(targetPath) {
 			return fmt.Errorf("%s already exist", targetPath)
 		}
 

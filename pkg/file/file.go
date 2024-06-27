@@ -48,7 +48,7 @@ func ParseDirEntry(base string, entry os.DirEntry) (*Info, error) {
 	}, nil
 }
 
-func FileExists(filePath string) bool {
+func Exists(filePath string) bool {
 	_, err := os.Stat(filePath)
 	return !os.IsNotExist(err)
 }
