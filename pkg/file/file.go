@@ -1,4 +1,4 @@
-package utils
+package file
 
 import (
 	"io/fs"
@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type FileInfo struct {
+type Info struct {
 	Name        string
 	AbsPath     string
 	IsDirectory bool
@@ -16,12 +16,12 @@ type FileInfo struct {
 	ModeTime    time.Time
 }
 
-func ReadDir(abs string) ([]*FileInfo, error) {
+func ReadDir(abs string) ([]*Info, error) {
 	entries, err := os.ReadDir(abs)
 	if err != nil {
 		return nil, err
 	}
-	result := make([]*FileInfo, 0)
+	result := make([]*Info, 0)
 	for _, entry := range entries {
 		info, err := ParseDirEntry(abs, entry)
 		if err != nil {
@@ -32,13 +32,13 @@ func ReadDir(abs string) ([]*FileInfo, error) {
 	return result, nil
 }
 
-func ParseDirEntry(base string, entry os.DirEntry) (*FileInfo, error) {
+func ParseDirEntry(base string, entry os.DirEntry) (*Info, error) {
 	file, err := entry.Info()
 	if err != nil {
 		return nil, err
 	}
 	name := file.Name()
-	return &FileInfo{
+	return &Info{
 		Name:        name,
 		AbsPath:     base + string(filepath.Separator) + name,
 		IsDirectory: file.IsDir(),
