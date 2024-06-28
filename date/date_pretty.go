@@ -5,7 +5,11 @@ import (
 	"time"
 )
 
-func CurTimeStr() string {
+func ToPrettyString(time time.Time) string {
+	return time.Format("2006-01-02 15:04:05")
+}
+
+func CurrentCustomTimeString() string {
 	now := time.Now()
 	return fmt.Sprintf("%04d%02d%02d_%02d%02d%02d",
 		now.Year(), now.Month(), now.Day(),
@@ -13,7 +17,7 @@ func CurTimeStr() string {
 	)
 }
 
-func ParseTimeStr(timeStr string) (time.Time, error) {
+func ParseCustomTimeString(timeStr string) (time.Time, error) {
 	layout := "20060102_150405"
 	parsedTime, err := time.Parse(layout, timeStr)
 	if err != nil {
