@@ -21,10 +21,6 @@ func (b HttpRequest) Call() (*http.Response, error) {
 		req.Header.Add(key, value)
 	}
 
-	c := &http.Client{
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
-			return http.ErrUseLastResponse
-		},
-	}
+	c := http.Client{}
 	return c.Do(req)
 }
