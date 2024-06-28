@@ -1,4 +1,4 @@
-package iter
+package seq
 
 func Concat(origin []string, list []string) []string {
 	for _, elem := range list {

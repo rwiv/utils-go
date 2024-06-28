@@ -1,10 +1,9 @@
 package file
 
 import (
+	"github.com/rwiv/utils-go/path"
 	"path/filepath"
 	"testing"
-
-	"github.com/rwiv/utils-go/pkg/path"
 )
 
 func TestCompressTarGz(t *testing.T) {
