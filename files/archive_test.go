@@ -1,13 +1,14 @@
-package file
+package files
 
 import (
-	"github.com/rwiv/utils-go/path"
 	"path/filepath"
 	"testing"
+
+	"github.com/rwiv/utils-go/paths"
 )
 
 func TestCompressTarGz(t *testing.T) {
-	root, err := path.ProjectRoot()
+	root, err := paths.ProjectRoot()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -21,7 +22,7 @@ func TestCompressTarGz(t *testing.T) {
 }
 
 func TestExtractTarGz(t *testing.T) {
-	root, err := path.ProjectRoot()
+	root, err := paths.ProjectRoot()
 	if err != nil {
 		t.Fatal(err)
 	}

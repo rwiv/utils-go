@@ -1,4 +1,4 @@
-package file
+package files
 
 import (
 	"archive/tar"
@@ -62,7 +62,7 @@ func CompressTarGz(srcPath, destPath string) error {
 func ExtractTarGz(srcPath, destDirPath, targetName string) error {
 	srcFile, err := os.Open(srcPath)
 	if err != nil {
-		return fmt.Errorf("Error opening file %s: %v\n", srcPath, err)
+		return fmt.Errorf("Error opening files %s: %v\n", srcPath, err)
 	}
 	defer srcFile.Close()
 

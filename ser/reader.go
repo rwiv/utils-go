@@ -1,4 +1,4 @@
-package json
+package ser
 
 import (
 	"encoding/json"

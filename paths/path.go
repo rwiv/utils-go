@@ -1,4 +1,4 @@
-package path
+package paths
 
 import (
 	"fmt"
@@ -6,6 +6,14 @@ import (
 	"path/filepath"
 	"strings"
 )
+
+func GetExt(filePath string) string {
+	ext := filepath.Ext(filePath)
+	if strings.HasPrefix(ext, ".") {
+		ext = strings.TrimPrefix(ext, ".")
+	}
+	return ext
+}
 
 func ProjectRoot() (string, error) {
 	ex, err := filepath.Abs("")
