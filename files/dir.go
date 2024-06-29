@@ -51,7 +51,7 @@ func ReadDirRecur(dirPath string) ([]*FileInfo, error) {
 		if path == dirPath {
 			return nil
 		}
-		info, err := ParseOsFileInfo(dirPath, osInfo)
+		info, err := ParseOsFileInfo(filepath.Dir(path), osInfo)
 		if err != nil {
 			return err
 		}
