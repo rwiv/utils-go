@@ -9,7 +9,7 @@ import (
 )
 
 func TestCopyFile(t *testing.T) {
-	root, err := ProjectRoot()
+	root, err := testProjectRoot()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -22,7 +22,7 @@ func TestCopyFile(t *testing.T) {
 	}
 }
 
-func ProjectRoot() (string, error) {
+func testProjectRoot() (string, error) {
 	ex, err := filepath.Abs("")
 	if err != nil {
 		return "", err
